@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import HrView from "./components/HrView";
 import TeamLeadView from "./components/TeamLeadView";
-import CEOView from "./components/CEOView";
+import CeoView from "./components/CeoView";
 
 interface AuthUser {
   email: string;
@@ -27,12 +27,8 @@ const Dashboard: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen secondary-bg">
       {user.role === "hr" && <HrView />}
-      {user.role === "teamlead" && (
-        <p>📝 Team Lead Dashboard - Track Rule Violations</p>
-      )}
-      {user.role === "ceo" && (
-        <p>🏆 CEO Dashboard - View Reports & Statistics</p>
-      )}
+      {user.role === "teamlead" && <TeamLeadView />}
+      {user.role === "ceo" && <CeoView />}
     </div>
   );
 };

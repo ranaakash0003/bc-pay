@@ -14,7 +14,7 @@ const Navbar = (props: Props) => {
   };
 
   return (
-    <header className="w-full h-16 flex items-center justify-between bg-primary-clr bg-white border-b fixed">
+    <header className="w-full h-16 flex items-center justify-between bg-primary-clr bg-white border-b">
       <h1 className="text-2xl font-bold ml-4">BC Pay</h1>
       <div className="w-[80%] flex items-center justify-evenly px-4">
         <input
