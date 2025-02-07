@@ -1,8 +1,24 @@
-import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { authenticateUser } from "../../utils/auth";
 
 type Props = {};
 
 const Login = (props: Props) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    const user = authenticateUser(email, password);
+    if (user) {
+      localStorage.setItem("authUser", JSON.stringify(user));
+      navigate("/dashboard");
+    } else {
+      setError("Invalid credentials");
+    }
+  };
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-gray-100">
       <div className="w-[400px] h-[500px] bg-white flex flex-col items-center justify-center shadow-md rounded-lg">
@@ -10,14 +26,17 @@ const Login = (props: Props) => {
         <h1 className="mb-4 text-lg font-normal">Sign In to your account</h1>
         <p className="mb-4 text-sm text-gray-500">
           Don't have an account?{" "}
-          <a href="#" className="primary-clr">
+          <a href="#" className="primary-clr font-medium">
             Sign Up
           </a>
         </p>
+        {error && <p className="text-red-500">{error}</p>}
         <div className="mb-4 mt-4 flex flex-col">
           <label className="text-sm font-medium text-gray-700">Email</label>
           <input
-            type="text"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="mb-4 px-3 border-b border-gray-300 w-64 outline-none"
           />
 
@@ -26,11 +45,16 @@ const Login = (props: Props) => {
           </label>
           <input
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="mb-4 px-3 border-b border-gray-300 w-64 outline-none"
           />
         </div>
 
-        <button className="primary-bg text-white px-4 py-2 rounded-md w-64">
+        <button
+          className="primary-bg text-white px-4 py-2 rounded-md w-64"
+          onClick={handleLogin}
+        >
           Sign In
         </button>
       </div>

@@ -1,17 +1,31 @@
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
+import Dashboard from "./pages/dashboard/Dashboard";
+import About from "./pages/about/About";
+import PrivateRoute from "./components/PrivateRoute";
 import "./App.css";
 import Login from "./pages/login/Login";
 import Navbar from "./components/Navbar";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App: React.FC = () => {
   return (
-    <div className="w-screen h-screen bg-gray-100">
+    <Router>
       <Navbar />
-      <Login />
-    </div>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        {/* Redirect unknown routes */}
+        <Route path="*" element={<Login />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

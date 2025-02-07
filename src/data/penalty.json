@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "userId": 101,
+    "name": "Alice Johnson",
+    "department": "Human Resources",
+    "amount": 200,
+    "status": "unpaid",
+    "date": "2025-02-06",
+    "rule": "Fashionably late to meetings",
+    "due": "2025-02-10"
+  },
+  {
+    "id": 2,
+    "userId": 102,
+    "name": "Bob Smith",
+    "department": "Human Resources",
+    "amount": 50,
+    "status": "unpaid",
+    "date": "2025-02-04",
+    "rule": "Shoes playing hide-and-seek outside the rack",
+    "due": "2025-02-09"
+  },
+  {
+    "id": 3,
+    "userId": 201,
+    "name": "Charlie Brown",
+    "department": "Engineering",
+    "amount": 150,
+    "status": "paid",
+    "date": "2025-02-01",
+    "rule": "Ignoring email etiquette",
+    "due": "2025-02-06"
+  },
+  {
+    "id": 4,
+    "userId": 202,
+    "name": "David Wilson",
+    "department": "Engineering",
+    "amount": 200,
+    "status": "unpaid",
+    "date": "2025-02-02",
+    "rule": "Excessive personal phone use during work hours",
+    "due": "2025-02-07"
+  },
+  {
+    "id": 5,
+    "userId": 301,
+    "name": "Eve Carter",
+    "department": "Marketing",
+    "amount": 300,
+    "status": "unpaid",
+    "date": "2025-02-03",
+    "rule": "Taking someone else's food from the fridge",
+    "due": "2025-02-08"
+  },
+  {
+    "id": 6,
+    "userId": 302,
+    "name": "Frank White",
+    "department": "Marketing",
+    "amount": 100,
+    "status": "paid",
+    "date": "2025-02-05",
+    "rule": "Not following the dress code",
+    "due": "2025-02-10"
+  },
+  {
+    "id": 7,
+    "userId": 401,
+    "name": "Grace Green",
+    "department": "Finance",
+    "amount": 80,
+    "status": "unpaid",
+    "date": "2025-02-01",
+    "rule": "Not cleaning up after office lunch",
+    "due": "2025-02-06"
+  },
+  {
+    "id": 8,
+    "userId": 402,
+    "name": "Hank Black",
+    "department": "Finance",
+    "amount": 120,
+    "status": "unpaid",
+    "date": "2025-02-02",
+    "rule": "Leaving the printer jammed and walking away",
+    "due": "2025-02-07"
+  },
+  {
+    "id": 9,
+    "userId": 501,
+    "name": "Ivy Blue",
+    "department": "Operations",
+    "amount": 250,
+    "status": "paid",
+    "date": "2025-02-03",
+    "rule": "Blocking emergency exits with personal items",
+    "due": "2025-02-08"
+  },
+  {
+    "id": 10,
+    "userId": 502,
+    "name": "Jack Red",
+    "department": "Operations",
+    "amount": 400,
+    "status": "unpaid",
+    "date": "2025-02-04",
+    "rule": "Forgetting to turn off pc when leaving",
+    "due": "2025-02-09"
+  }
+]
