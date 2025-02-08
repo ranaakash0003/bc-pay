@@ -1,50 +1,60 @@
-import { Link, useNavigate, useLocation } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useState } from "react";
+import { getUserInfo } from "../utils";
+import useClickOutside from "@/hooks/useClickOutside";
 
-type Props = {};
-
-const Navbar = (props: Props) => {
+const Navbar = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const authUser = localStorage.getItem("authUser");
-  const user = authUser ? JSON.parse(authUser) : null;
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const user = getUserInfo();
+  const dropdownRef = useClickOutside(() => setDropdownOpen(false));
 
   const handleLogout = () => {
+    setDropdownOpen(false);
     localStorage.removeItem("authUser");
     navigate("/");
   };
 
   return (
-    <header className="w-full h-16 flex items-center justify-between bg-primary-clr bg-white border-b">
-      <h1 className="text-2xl font-bold ml-4">BC Pay</h1>
-      <div className="w-[80%] flex items-center justify-evenly px-4">
+    <header className="w-full h-16 flex items-center justify-between bg-white border-b px-4">
+      <h1 className="text-2xl font-bold">BC Pay</h1>
+      <div className="flex items-center gap-6">
         <input
-          className="w-[400px] border border-black rounded-md px-2 py-1"
+          className="w-[200px] border border-gray-400 rounded-md px-3 py-1 outline-none"
           type="text"
           placeholder="Search"
         />
-        <span>About</span>
-        <span>Contact us</span>
-        {authUser ? (
-          //   <div className="flex gap-4">
-          //     <Link to="/dashboard" className="hover:text-gray-300">
-          //       Dashboard
-          //     </Link>
-          //     <button
-          //       onClick={handleLogout}
-          //       className="bg-red-500 px-3 py-1 rounded-md"
-          //     >
-          //       Logout
-          //     </button>
-          //   </div>
 
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 px-3 py-1 rounded-md"
-          >
-            Logout
-          </button>
+        {user ? (
+          <div className="relative">
+            <div
+              className="w-10 h-10 flex items-center justify-center rounded-full primary-bg text-white text-lg font-semibold cursor-pointer"
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+            >
+              {user.email.charAt(0).toUpperCase()}
+            </div>
+
+            {dropdownOpen && (
+              <div
+                ref={dropdownRef}
+                className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-lg shadow-md py-2"
+              >
+                <div className="px-4 py-2 border-b border-gray-200 ">
+                  <p className="text-sm font-semibold text-gray-700">Profile</p>
+                  <p className="text-xs text-gray-500">{user.email}</p>
+                </div>
+
+                <button
+                  onClick={handleLogout}
+                  className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-gray-100 rounded-b-lg"
+                >
+                  Sign out
+                </button>
+              </div>
+            )}
+          </div>
         ) : (
-          <Link to="/login" className="hover:text-gray-300">
+          <Link to="/login" className="primary-clr hover:underline">
             Login
           </Link>
         )}

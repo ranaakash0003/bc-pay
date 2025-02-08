@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { authenticateUser } from "../../utils/auth";
+import { authenticateUser } from "../../utils";
 
-type Props = {};
-
-const Login = (props: Props) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -27,7 +25,7 @@ const Login = (props: Props) => {
         <p className="mb-4 text-sm text-gray-500">
           Don't have an account?{" "}
           <a href="#" className="primary-clr font-medium">
-            Sign Up
+            Wait
           </a>
         </p>
         {error && <p className="text-red-500">{error}</p>}
@@ -52,7 +50,10 @@ const Login = (props: Props) => {
         </div>
 
         <button
-          className="primary-bg text-white px-4 py-2 rounded-md w-64"
+          disabled={!email || !password}
+          className={`${
+            !email || !password ? "bg-gray-500" : "primary-bg"
+          } text-white px-4 py-2 rounded-md w-64`}
           onClick={handleLogin}
         >
           Sign In

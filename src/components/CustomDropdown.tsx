@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa6";
 import { DropdownItemTypes } from "../types";
+import useClickOutside from "@/hooks/useClickOutside";
 
 type CustomDropdownProps = {
   title: string;
@@ -16,27 +17,11 @@ const CustomDropdown = ({
   data,
 }: CustomDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  const dropdownRef = useClickOutside(() => setIsOpen(false));
 
   return (
     <div className="relative" ref={dropdownRef}>
-      <label className="block text-gray-700 font-normal mb-1">{title}*</label>
+      <label className="block text-sm font-medium mb-1">{title}*</label>
 
       <div
         className="w-full flex items-center justify-between border border-gray-300 p-2 rounded-md cursor-pointer bg-white"
@@ -57,7 +42,7 @@ const CustomDropdown = ({
               }}
               className="p-2 cursor-pointer hover:bg-gray-100"
             >
-              {item.value}{" "}
+              <span className="text-gray-700 pr-1">{item.value}</span>
               {item.optionalValue && (
                 <span className="font-medium">(BDT {item.optionalValue})</span>
               )}

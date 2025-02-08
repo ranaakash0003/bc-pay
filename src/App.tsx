@@ -1,17 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
 import Dashboard from "./pages/dashboard/Dashboard";
 import About from "./pages/about/About";
 import PrivateRoute from "./components/PrivateRoute";
 import "./App.css";
 import Login from "./pages/login/Login";
 import Navbar from "./components/Navbar";
+import { getUserInfo as isAuthenticated } from "./utils";
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={
+            isAuthenticated() != null ? <Navigate to="/dashboard" /> : <Login />
+          }
+        />
         <Route path="/about" element={<About />} />
         <Route
           path="/dashboard"
@@ -22,7 +28,12 @@ const App: React.FC = () => {
           }
         />
         {/* Redirect unknown routes */}
-        <Route path="*" element={<Login />} />
+        <Route
+          path="*"
+          element={
+            isAuthenticated() != null ? <Navigate to="/dashboard" /> : <Login />
+          }
+        />
       </Routes>
     </Router>
   );

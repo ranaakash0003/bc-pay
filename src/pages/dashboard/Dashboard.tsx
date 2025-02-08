@@ -4,13 +4,13 @@ import HrView from "./components/HrView";
 import TeamLeadView from "./components/TeamLeadView";
 import CeoView from "./components/CeoView";
 
-interface AuthUser {
+type AuthUserTypes = {
   email: string;
   role: "hr" | "teamlead" | "ceo";
-}
+};
 
-const Dashboard: React.FC = () => {
-  const [user, setUser] = useState<AuthUser | null>(null);
+const Dashboard = () => {
+  const [user, setUser] = useState<AuthUserTypes | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Dashboard: React.FC = () => {
   if (!user) return null;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen secondary-bg">
+    <div className="flex flex-col items-center min-h-screen secondary-bg">
       {user.role === "hr" && <HrView />}
       {user.role === "teamlead" && <TeamLeadView />}
       {user.role === "ceo" && <CeoView />}

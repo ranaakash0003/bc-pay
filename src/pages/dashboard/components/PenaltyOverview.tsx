@@ -22,7 +22,7 @@ const PenaltyOverview = () => {
     .reduce((sum, p) => sum + p.amount, 0);
 
   return (
-    <div className="flex flex-row justify-between m-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 m-4">
       <InfoCard type="Total Employee" value={totalEmployee} />
       <InfoCard type="Total Rule Breaks" value={totalRuleBreaks} />
       <InfoCard type="Total Penalty Amount" value={totalPenaltyAmount} />

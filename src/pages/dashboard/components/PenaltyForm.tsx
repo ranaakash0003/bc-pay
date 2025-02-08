@@ -4,21 +4,26 @@ import { DEPARTMENTS, RULES } from "../../../utils/constant";
 import { usePenalty } from "@/context/PenaltyContext";
 import CustomDropdown from "@/components/CustomDropdown";
 
-type ReportPenaltyModalProps = {
+type ReportPenaltyModalPropsTypes = {
   onClose: () => void;
 };
-const ReportPenaltyModal = ({ onClose }: ReportPenaltyModalProps) => {
-  const { penalties, setPenalties } = usePenalty();
-  const [selectedEmployee, setSelectedEmployee] = useState<{
-    id: number;
-    value: string;
-  } | null>(null);
-  const [selectedRule, setSelectedRule] = useState<{
-    id: number;
-    value: string;
-    optionalValue?: number;
-  } | null>(null);
 
+type SelectedEmployeeTypes = {
+  id: number;
+  value: string;
+} | null;
+
+type SelectedRuleTypes = {
+  id: number;
+  value: string;
+  optionalValue?: number;
+} | null;
+
+const ReportPenaltyModal = ({ onClose }: ReportPenaltyModalPropsTypes) => {
+  const { penalties, setPenalties } = usePenalty();
+  const [selectedEmployee, setSelectedEmployee] =
+    useState<SelectedEmployeeTypes>(null);
+  const [selectedRule, setSelectedRule] = useState<SelectedRuleTypes>(null);
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [error, setError] = useState("");
   const selectedRuleData = RULES.find(
@@ -70,7 +75,7 @@ const ReportPenaltyModal = ({ onClose }: ReportPenaltyModalProps) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-[450px] relative">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-[460px] relative">
         <h2 className="text-xl font-bold mb-4">Report Form</h2>
 
         {error && <p className="text-red-500">{error}</p>}
@@ -101,9 +106,7 @@ const ReportPenaltyModal = ({ onClose }: ReportPenaltyModalProps) => {
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-700 font-medium mb-1">
-              Date:
-            </label>
+            <label className="block text-sm font-medium mb-1">Date*</label>
             <input
               type="date"
               value={date}
@@ -114,14 +117,14 @@ const ReportPenaltyModal = ({ onClose }: ReportPenaltyModalProps) => {
 
           {/* Amount Display */}
           <div className="mb-4">
-            <label className="block text-gray-700 font-medium mb-1">
-              Penalty Amount:
+            <label className="block text-sm font-medium mb-1">
+              Penalty Amount
             </label>
             <input
               type="text"
               value={penaltyAmount}
               readOnly
-              className="w-full border border-gray-300 p-2 rounded-md bg-gray-100"
+              className="w-full border border-gray-300 p-2 rounded-md bg-gray-200 outline-none"
             />
           </div>
 
@@ -129,7 +132,7 @@ const ReportPenaltyModal = ({ onClose }: ReportPenaltyModalProps) => {
             <div className="mt-4 flex justify-end">
               <button
                 onClick={onClose}
-                className="border-solid border border-black  primary-clr px-4 py-2 rounded-md hover:bg-gray-100 transition duration-300"
+                className="border-solid border border-black  primary-clr px-3 py-1 rounded-md hover:bg-gray-100 transition duration-300"
               >
                 Close
               </button>
@@ -140,7 +143,7 @@ const ReportPenaltyModal = ({ onClose }: ReportPenaltyModalProps) => {
                   isDisabled
                     ? "bg-gray-500"
                     : "primary-bg hover:bg-gray-800 transition duration-300"
-                } text-white px-4 py-2 rounded-md ml-2 `}
+                } text-white px-3 py-1 rounded-md ml-2 `}
               >
                 Submit
               </button>{" "}
@@ -150,7 +153,7 @@ const ReportPenaltyModal = ({ onClose }: ReportPenaltyModalProps) => {
 
         <button
           onClick={onClose}
-          className="absolute top-2 right-2 text-black-200 hover:text-gray-700"
+          className="absolute top-2 right-2 hover:text-gray-700"
         >
           <FaRegCircleXmark size={20} />
         </button>

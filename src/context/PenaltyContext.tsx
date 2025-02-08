@@ -5,30 +5,21 @@ import {
   ReactNode,
   useEffect,
 } from "react";
+import { PenaltyTypes } from "../types";
 
-interface Penalty {
-  id: number;
-  userId: number;
-  name: string;
-  department: string;
-  amount: number;
-  status: string;
-  date: string;
-  rule: string;
-  due: string;
-}
+type PenaltyContextTypes = {
+  penalties: PenaltyTypes[];
+  setPenalties: React.Dispatch<React.SetStateAction<PenaltyTypes[]>>;
+};
 
-interface PenaltyContextType {
-  penalties: Penalty[];
-  setPenalties: React.Dispatch<React.SetStateAction<Penalty[]>>;
-}
-
-const PenaltyContext = createContext<PenaltyContextType | undefined>(undefined);
+const PenaltyContext = createContext<PenaltyContextTypes | undefined>(
+  undefined
+);
 
 export const PenaltyProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [penalties, setPenalties] = useState<Penalty[]>([]);
+  const [penalties, setPenalties] = useState<PenaltyTypes[]>([]);
 
   useEffect(() => {
     const storedData = localStorage.getItem("penalties");
@@ -52,7 +43,6 @@ export const PenaltyProvider: React.FC<{ children: ReactNode }> = ({
   );
 };
 
-// Custom Hook to Use Context
 export const usePenalty = () => {
   const context = useContext(PenaltyContext);
   if (!context) {
