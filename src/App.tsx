@@ -1,11 +1,10 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
 import Dashboard from "./pages/dashboard/Dashboard";
 import About from "./pages/about/About";
 import PrivateRoute from "./components/PrivateRoute";
 import "./App.css";
 import Login from "./pages/login/Login";
 import Navbar from "./components/Navbar";
-import { getUserInfo as isAuthenticated } from "./utils";
 
 const App = () => {
   return (
@@ -22,7 +21,6 @@ const App = () => {
             </PrivateRoute>
           }
         />
-        {/* Redirect unknown routes */}
         <Route path="*" element={<Login />} />
       </Routes>
     </Router>
