@@ -12,12 +12,7 @@ const App = () => {
     <Router>
       <Navbar />
       <Routes>
-        <Route
-          path="/login"
-          element={
-            isAuthenticated() != null ? <Navigate to="/dashboard" /> : <Login />
-          }
-        />
+        <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route
           path="/dashboard"
@@ -28,12 +23,7 @@ const App = () => {
           }
         />
         {/* Redirect unknown routes */}
-        <Route
-          path="*"
-          element={
-            isAuthenticated() != null ? <Navigate to="/dashboard" /> : <Login />
-          }
-        />
+        <Route path="*" element={<Login />} />
       </Routes>
     </Router>
   );

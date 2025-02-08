@@ -12,11 +12,23 @@ const Login = () => {
     const user = authenticateUser(email, password);
     if (user) {
       localStorage.setItem("authUser", JSON.stringify(user));
+      if (!localStorage.getItem("penalties")) {
+        fetch("/src/data/penalty.json")
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("penalties", JSON.stringify(data));
+            window.dispatchEvent(new Event("penaltiesUpdated"));
+          })
+          .catch((error) => console.error("Error loading penalties:", error));
+      } else {
+        window.dispatchEvent(new Event("penaltiesUpdated"));
+      }
       navigate("/dashboard");
     } else {
       setError("Invalid credentials");
     }
   };
+
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-gray-100">
       <div className="w-[400px] h-[500px] bg-white flex flex-col items-center justify-center shadow-md rounded-lg">

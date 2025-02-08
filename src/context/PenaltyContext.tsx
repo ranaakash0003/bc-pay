@@ -22,18 +22,20 @@ export const PenaltyProvider: React.FC<{ children: ReactNode }> = ({
   const [penalties, setPenalties] = useState<PenaltyTypes[]>([]);
 
   useEffect(() => {
-    const storedData = localStorage.getItem("penalties");
-    if (storedData) {
-      setPenalties(JSON.parse(storedData));
-    } else {
-      fetch("/src/data/penalties.json")
-        .then((res) => res.json())
-        .then((data) => {
-          setPenalties(data);
-          localStorage.setItem("penalties", JSON.stringify(data));
-        })
-        .catch((error) => console.error("Error loading penalties:", error));
-    }
+    const loadPenalties = () => {
+      const storedData = localStorage.getItem("penalties");
+      if (storedData) {
+        setPenalties(JSON.parse(storedData));
+      }
+    };
+    loadPenalties();
+    const handleStorageUpdate = () => {
+      loadPenalties();
+    };
+    window.addEventListener("penaltiesUpdated", handleStorageUpdate);
+    return () => {
+      window.removeEventListener("penaltiesUpdated", handleStorageUpdate);
+    };
   }, []);
 
   return (
