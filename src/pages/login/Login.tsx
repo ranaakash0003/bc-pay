@@ -5,8 +5,8 @@ import { PENALTY_DATA } from "../../data";
 import Button from "@/components/Button";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("hr@kaz.info");
+  const [password, setPassword] = useState("1234");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 

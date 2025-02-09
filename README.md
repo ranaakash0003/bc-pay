@@ -6,6 +6,10 @@ BC Pay
 
 **BC Pay** is a **Benevolent Contribution System** designed to manage penalty payments within an organization. Employees who break workplace rules contribute a small amount to a shared fund, encouraging responsibility and accountability.
 
+## 🌐 Live Demo
+
+🔗 [BC Pay - Live App](https://bc-pay-xi.vercel.app/)
+
 ## ✨ Features
 
 - 🔐 **User Authentication** – Secure access to the system.
@@ -19,6 +23,14 @@ BC Pay
 
 - **Frontend:** React.js, TypeScript, TailwindCSS
 - **State Management:** React Context API
+
+## 🔑 User Credentials For Login
+
+| Email             | Password | Role     |
+| ----------------- | -------- | -------- |
+| hr@kaz.info       | 1234     | hr       |
+| teamlead@kaz.info | 1234     | teamlead |
+| ceo@kaz.info      | 1234     | ceo      |
 
 ## 🚀 Getting Started
 
@@ -42,16 +54,3 @@ npm run dev
 ```
 
 The app will be available at `http://localhost:5173`
-
-## 🌐 Live Demo
-
-🔗 [BC Pay - Live App](https://bc-pay-xi.vercel.app/)
-
-## 👥 Contributors
-
-- **Your Name** – [@yourgithub](https://github.com/yourgithub)
-- Feel free to contribute! PRs are welcome.
-
-## ⭐ Show Some Love
-
-If you like this project, give it a ⭐ on GitHub!
