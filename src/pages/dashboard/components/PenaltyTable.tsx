@@ -37,11 +37,11 @@ const PenaltyTable = () => {
         <table className="w-full border-collapse border border-gray-300 bg-white hidden md:table">
           <thead>
             <tr className="bg-gray-200">
-              <th className="border-b p-4">Employee ID</th>
-              <th className="border-b p-4">Name</th>
-              <th className="border-b p-4">Department</th>
-              <th className="border-b p-4">Total Amount (BDT)</th>
-              <th className="border-b p-4">Status</th>
+              <th className="border-b p-4 text-sm">Employee ID</th>
+              <th className="border-b p-4 text-sm">Name</th>
+              <th className="border-b p-4 text-sm">Department</th>
+              <th className="border-b p-4 text-sm">Total Amount (BDT)</th>
+              <th className="border-b p-4 text-sm">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -58,17 +58,21 @@ const PenaltyTable = () => {
                     } text-center`}
                     onClick={() => isHr() && openModal(userPenalty)}
                   >
-                    <td className="border-b p-4">{userPenalty.userId}</td>
-                    <td className="border-b p-4">{userPenalty.name}</td>
-                    <td className="border-b p-4">
+                    <td className="border-b p-4 text-sm">
+                      {userPenalty.userId}
+                    </td>
+                    <td className="border-b p-4 text-sm">{userPenalty.name}</td>
+                    <td className="border-b p-4 text-sm">
                       <span className="px-2 py-1 border rounded-md text-gray-500 bg-gray-100 font-normal">
                         {userPenalty.department}
                       </span>
                     </td>
-                    <td className="border-b p-4">{getTotalAmount(userId)}</td>
+                    <td className="border-b p-4 text-sm">
+                      {getTotalAmount(userId)}
+                    </td>
                     <td className={`border-b font-normal text-sm`}>
                       <span
-                        className={`px-3 py-1 border rounded-full ${
+                        className={`px-3 py-1 border text-sm rounded-full ${
                           getTotalAmount(userId) === 0
                             ? "text-green-600 bg-green-200"
                             : "text-red-600 bg-red-200"

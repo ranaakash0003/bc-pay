@@ -27,7 +27,7 @@ const CustomDropdown = ({
         className="w-full flex items-center justify-between border border-gray-300 p-2 rounded-md cursor-pointer bg-white"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="font-normal">{selectedData || "Select"}</span>
+        <span className="font-normal text-sm">{selectedData || "Select"}</span>
         <FaAngleDown className="ml-2 text-gray-500" />
       </div>
 
@@ -40,11 +40,13 @@ const CustomDropdown = ({
                 setSelectedData(item);
                 setIsOpen(false);
               }}
-              className="p-2 cursor-pointer hover:bg-gray-100"
+              className="p-2 text-sm cursor-pointer hover:bg-gray-100"
             >
-              <span className="text-gray-700 pr-1">{item.value}</span>
+              <span className="text-gray-600 pr-1">{item.value}</span>
               {item.optionalValue && (
-                <span className="font-medium">(BDT {item.optionalValue})</span>
+                <span className="font-medium text-sm text-gray-400">
+                  (BDT {item.optionalValue})
+                </span>
               )}
             </div>
           ))}

@@ -15,7 +15,7 @@ const PenaltyCard = ({ userPenalty, getTotalAmount, openModal }: Props) => {
       } bg-white border border-gray-300 rounded-lg shadow-md p-4 mb-4`}
       onClick={() => isHr() && openModal(userPenalty)}
     >
-      <h4 className="text-lg font-semibold text-gray-800">
+      <h4 className="text-base font-semibold text-gray-800">
         {userPenalty.name}
       </h4>
       <div className="flex flex-col gap-2">

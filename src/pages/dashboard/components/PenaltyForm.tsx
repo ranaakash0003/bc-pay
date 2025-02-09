@@ -3,6 +3,7 @@ import { FaRegCircleXmark } from "react-icons/fa6";
 import { DEPARTMENTS, RULES } from "../../../data";
 import { usePenalty } from "@/context/PenaltyContext";
 import CustomDropdown from "@/components/CustomDropdown";
+import Button from "@/components/Button";
 
 type ReportPenaltyModalPropsTypes = {
   onClose: () => void;
@@ -75,7 +76,7 @@ const ReportPenaltyModal = ({ onClose }: ReportPenaltyModalPropsTypes) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-[460px] relative">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-[440px] relative">
         <h2 className="text-xl font-bold mb-4">Report Form</h2>
 
         {error && <p className="text-red-500">{error}</p>}
@@ -111,11 +112,10 @@ const ReportPenaltyModal = ({ onClose }: ReportPenaltyModalPropsTypes) => {
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="w-full border border-gray-300 p-2 rounded-md"
+              className="w-full border border-gray-300 p-2 outline-none rounded-md text-sm"
             />
           </div>
 
-          {/* Amount Display */}
           <div className="mb-4">
             <label className="block text-sm font-medium mb-1">
               Penalty Amount
@@ -124,39 +124,30 @@ const ReportPenaltyModal = ({ onClose }: ReportPenaltyModalPropsTypes) => {
               type="text"
               value={penaltyAmount}
               readOnly
-              className="w-full border border-gray-300 p-2 rounded-md bg-gray-200 outline-none"
+              className="w-full border border-gray-300 p-2 rounded-md bg-gray-200 outline-none text-sm"
             />
           </div>
 
           <div className="mt-4 flex justify-end">
             <div className="mt-4 flex justify-end">
-              <button
-                onClick={onClose}
-                className="border-solid border border-black  primary-clr px-3 py-1 rounded-md hover:bg-gray-100 transition duration-300"
-              >
+              <Button onClick={onClose} variant="secondary">
                 Close
-              </button>
-              <button
-                disabled={isDisabled}
-                type="submit"
-                className={`${
-                  isDisabled
-                    ? "bg-gray-500"
-                    : "primary-bg hover:bg-gray-800 transition duration-300"
-                } text-white px-3 py-1 rounded-md ml-2 `}
-              >
+              </Button>
+
+              <Button type="submit" disabled={isDisabled} className="ml-2">
                 Submit
-              </button>{" "}
+              </Button>
             </div>
           </div>
         </form>
 
-        <button
+        <Button
           onClick={onClose}
-          className="absolute top-2 right-2 hover:text-gray-700"
+          variant="link"
+          className="absolute top-2 right-2"
         >
           <FaRegCircleXmark size={20} />
-        </button>
+        </Button>
       </div>
     </div>
   );

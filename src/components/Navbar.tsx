@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router";
 import { useState } from "react";
 import { getUserInfo } from "../utils";
 import useClickOutside from "@/hooks/useClickOutside";
+import Button from "./Button";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -44,17 +45,18 @@ const Navbar = () => {
                   <p className="text-xs text-gray-500">{user.email}</p>
                 </div>
 
-                <button
+                <Button
+                  className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-gray-100 hover:text-red-500"
                   onClick={handleLogout}
-                  className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-gray-100 rounded-b-lg"
+                  variant="link"
                 >
                   Sign out
-                </button>
+                </Button>
               </div>
             )}
           </div>
         ) : (
-          <Link to="/login" className="primary-clr hover:underline">
+          <Link to="/login" className="primary-clr">
             Login
           </Link>
         )}
