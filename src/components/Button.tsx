@@ -19,10 +19,12 @@ const Button = ({
 }: ButtonPropsTypes) => {
   const baseStyles = "px-3 py-2 rounded-md transition duration-300 text-sm";
   const variantStyles = {
-    primary: "primary-bg secondary-text",
+    primary: disabled
+      ? "primary-bg secondary-text"
+      : "primary-bg secondary-text hover:bg-gray-700",
     secondary: "border border-black text-black hover:bg-gray-100",
     danger: "bg-red-500 hover:bg-red-700",
-    link: "hover:text-gray-600",
+    link: disabled ? "text-gray-400" : "primary-clr hover:text-gray-500",
   };
 
   return (
@@ -30,13 +32,7 @@ const Button = ({
       onClick={onClick}
       type={type}
       disabled={disabled}
-      className={`${baseStyles} ${variantStyles[variant]} ${
-        disabled
-          ? variant === "link"
-            ? "text-gray-400 hover:text-gray-400"
-            : "bg-gray-500 hover:bg-gray-500"
-          : ""
-      } ${className}`}
+      className={`${baseStyles} ${variantStyles[variant]} ${className}`}
     >
       {children}
     </button>

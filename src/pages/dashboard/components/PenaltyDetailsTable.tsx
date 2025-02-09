@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { PAYMENT_STATUS } from "@/utils";
+import { formatDate, PAYMENT_STATUS } from "@/utils";
 import { usePenalty } from "@/context/PenaltyContext";
 import { PenaltyTypes } from "../../../types";
 import Button from "@/components/Button";
@@ -79,8 +79,12 @@ const PenaltyDetailsTable = ({
                 <tr key={penalty.id} className="text-center">
                   <td className="border-b p-3 text-sm">{penalty.rule}</td>
                   <td className="border-b p-3 text-sm">{penalty.amount}</td>
-                  <td className="border-b p-3 text-sm">{penalty.date}</td>
-                  <td className="border-b p-3 text-sm">{penalty.due}</td>
+                  <td className="border-b p-3 text-sm">
+                    {formatDate(penalty.date)}
+                  </td>
+                  <td className="border-b p-3 text-sm">
+                    {formatDate(penalty.due)}
+                  </td>
                   <td className={"border-b font-normal text-sm"}>
                     <span
                       className={`px-3 py-1 capitalize border rounded-full ${
@@ -117,10 +121,14 @@ const PenaltyDetailsTable = ({
                   <span className="font-medium">{penalty.amount} BDT</span>
                 </p>
                 <p className="text-gray-600 pb-3 text-sm">
-                  Date: <span className="font-medium">{penalty.date}</span>
+                  Date:{" "}
+                  <span className="font-medium">
+                    {formatDate(penalty.date)}
+                  </span>
                 </p>
                 <p className="text-gray-600 pb-3 text-sm">
-                  Due Date: <span className="font-medium">{penalty.due}</span>
+                  Due Date:{" "}
+                  <span className="font-medium">{formatDate(penalty.due)}</span>
                 </p>
                 <p className="text-gray-600 pb-3 text-sm">
                   Status:

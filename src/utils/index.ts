@@ -48,3 +48,12 @@ export const isTeamlead = () => {
   const user = getUserInfo();
   return user ? user.role === ROLE_TEAMLEAD : false;
 };
+
+export const formatDate = (date: string) => {
+  const formattedDate = new Date(date);
+  return formattedDate.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+};
