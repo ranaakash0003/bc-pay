@@ -10,6 +10,8 @@ const users: User[] = [
   { email: "ceo@kaz.info", password: "1234", role: "ceo" },
 ];
 
+export const PAYMENT_STATUS = { unpaid: "unpaid", paid: "paid" };
+
 export const authenticateUser = (
   email: string,
   password: string

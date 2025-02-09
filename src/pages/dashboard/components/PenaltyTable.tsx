@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { usePenalty } from "@/context/PenaltyContext";
-import { PAYMENT_STATUS } from "@/utils/constant";
-import { isHr } from "../../../utils";
-import { PenaltyTypes } from "../../../types";
+import { PAYMENT_STATUS, isHr } from "@/utils";
+import { PenaltyTypes } from "@/types";
 import PenaltyCard from "./PenaltyCard";
 import PenaltyDetailsTable from "./PenaltyDetailsTable";
 

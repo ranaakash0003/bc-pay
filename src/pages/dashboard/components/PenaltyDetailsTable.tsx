@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { PAYMENT_STATUS } from "@/utils/constant";
+import { PAYMENT_STATUS } from "@/utils";
 import { usePenalty } from "@/context/PenaltyContext";
 import { PenaltyTypes } from "../../../types";
 

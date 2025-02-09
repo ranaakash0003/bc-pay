@@ -1,5 +1,6 @@
 import InfoCard from "@/components/InfoCard";
-import { DEPARTMENTS, PAYMENT_STATUS } from "../../../utils/constant";
+import { DEPARTMENTS } from "../../../data";
+import { PAYMENT_STATUS } from "@/utils";
 import { usePenalty } from "@/context/PenaltyContext";
 
 const PenaltyOverview = () => {

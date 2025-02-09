@@ -5,7 +5,7 @@ import {
   ReactNode,
   useEffect,
 } from "react";
-import { PenaltyTypes } from "../types";
+import { PenaltyTypes } from "@/types";
 
 type PenaltyContextTypes = {
   penalties: PenaltyTypes[];

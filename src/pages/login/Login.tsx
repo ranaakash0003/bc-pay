@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { authenticateUser } from "../../utils";
+import { authenticateUser } from "@/utils";
+import { PENALTY_DATA } from "../../data";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,14 +14,7 @@ const Login = () => {
     if (user) {
       localStorage.setItem("authUser", JSON.stringify(user));
       if (!localStorage.getItem("penalties")) {
-        fetch("/src/data/penalty.json")
-          .then((res) => res.json())
-          .then((data) => {
-            localStorage.setItem("penalties", JSON.stringify(data));
-            window.dispatchEvent(new Event("penaltiesUpdated"));
-          })
-          .catch((error) => console.error("Error loading penalties:", error));
-      } else {
+        localStorage.setItem("penalties", JSON.stringify(PENALTY_DATA));
         window.dispatchEvent(new Event("penaltiesUpdated"));
       }
       navigate("/dashboard");

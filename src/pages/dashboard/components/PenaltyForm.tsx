@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaRegCircleXmark } from "react-icons/fa6";
-import { DEPARTMENTS, RULES } from "../../../utils/constant";
+import { DEPARTMENTS, RULES } from "../../../data";
 import { usePenalty } from "@/context/PenaltyContext";
 import CustomDropdown from "@/components/CustomDropdown";
 
