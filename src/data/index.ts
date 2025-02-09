@@ -63,8 +63,8 @@ export const DEPARTMENTS = [
     id: 1,
     name: "Human Resources",
     employees: [
-      { id: 101, name: "Alice Johnson", email: "alice.hr@company.com" },
-      { id: 102, name: "Bob Smith", email: "bob.hr@company.com" },
+      { id: 101, name: "Rashed Alam", email: "rashed.hr@company.com" },
+      { id: 102, name: "Arman Hossain", email: "arman.hr@company.com" },
     ],
   },
   {
@@ -73,10 +73,10 @@ export const DEPARTMENTS = [
     employees: [
       {
         id: 201,
-        name: "Charlie Brown",
-        email: "charlie.eng@company.com",
+        name: "Rakib Hasan",
+        email: "rakib.eng@company.com",
       },
-      { id: 202, name: "David Wilson", email: "david.eng@company.com" },
+      { id: 202, name: "Tanvir Hasan", email: "tanvir.eng@company.com" },
     ],
   },
   {
@@ -85,13 +85,13 @@ export const DEPARTMENTS = [
     employees: [
       {
         id: 301,
-        name: "Eve Carter",
-        email: "eve.marketing@company.com",
+        name: "Sajib Hasana",
+        email: "sajib.marketing@company.com",
       },
       {
         id: 302,
-        name: "Frank White",
-        email: "frank.marketing@company.com",
+        name: "Mahabuba Hasan",
+        email: "mahabuba.marketing@company.com",
       },
     ],
   },
@@ -101,18 +101,18 @@ export const DEPARTMENTS = [
     employees: [
       {
         id: 401,
-        name: "Grace Green",
-        email: "grace.finance@company.com",
+        name: "Disha Islam",
+        email: "disha.finance@company.com",
       },
-      { id: 402, name: "Hank Black", email: "hank.finance@company.com" },
+      { id: 402, name: "Shafi Hasan", email: "shafi.finance@company.com" },
     ],
   },
   {
     id: 5,
     name: "Operations",
     employees: [
-      { id: 501, name: "Ivy Blue", email: "ivy.ops@company.com" },
-      { id: 502, name: "Jack Red", email: "jack.ops@company.com" },
+      { id: 501, name: "Anik Khan", email: "anik.ops@company.com" },
+      { id: 502, name: "Arif Hasan", email: "arif.ops@company.com" },
     ],
   },
   {
@@ -121,8 +121,8 @@ export const DEPARTMENTS = [
     employees: [
       {
         id: 601,
-        name: "Kelly Brown",
-        email: "kelly.sales@company.com",
+        name: "Tanvir Hasan",
+        email: "tanvir.sales@company.com",
       },
       { id: 602, name: "Leo Gray", email: "leo.sales@company.com" },
     ],
@@ -133,7 +133,7 @@ export const PENALTY_DATA = [
   {
     id: 1,
     userId: 101,
-    name: "Alice Johnson",
+    name: "Rashed Alam",
     department: "Human Resources",
     amount: 200,
     status: "unpaid",
@@ -144,7 +144,7 @@ export const PENALTY_DATA = [
   {
     id: 2,
     userId: 102,
-    name: "Bob Smith",
+    name: "Arman Hossain",
     department: "Human Resources",
     amount: 50,
     status: "unpaid",
@@ -155,7 +155,7 @@ export const PENALTY_DATA = [
   {
     id: 3,
     userId: 201,
-    name: "Charlie Brown",
+    name: "Rakib Hasan",
     department: "Engineering",
     amount: 150,
     status: "paid",
@@ -166,7 +166,7 @@ export const PENALTY_DATA = [
   {
     id: 4,
     userId: 202,
-    name: "David Wilson",
+    name: "Tanvir Hasan",
     department: "Engineering",
     amount: 200,
     status: "unpaid",
@@ -177,7 +177,7 @@ export const PENALTY_DATA = [
   {
     id: 5,
     userId: 301,
-    name: "Eve Carter",
+    name: "Sajib Hasana",
     department: "Marketing",
     amount: 300,
     status: "unpaid",
@@ -188,7 +188,7 @@ export const PENALTY_DATA = [
   {
     id: 6,
     userId: 302,
-    name: "Frank White",
+    name: "Mahabuba Hasan",
     department: "Marketing",
     amount: 100,
     status: "paid",
@@ -199,7 +199,7 @@ export const PENALTY_DATA = [
   {
     id: 7,
     userId: 401,
-    name: "Grace Green",
+    name: "Disha Islam",
     department: "Finance",
     amount: 80,
     status: "unpaid",
@@ -210,7 +210,7 @@ export const PENALTY_DATA = [
   {
     id: 8,
     userId: 402,
-    name: "Hank Black",
+    name: "Shafi Hasan",
     department: "Finance",
     amount: 120,
     status: "unpaid",
@@ -221,7 +221,7 @@ export const PENALTY_DATA = [
   {
     id: 9,
     userId: 501,
-    name: "Ivy Blue",
+    name: "Anik Khan",
     department: "Operations",
     amount: 250,
     status: "paid",
@@ -232,7 +232,7 @@ export const PENALTY_DATA = [
   {
     id: 10,
     userId: 502,
-    name: "Jack Red",
+    name: "Arif Hasan",
     department: "Operations",
     amount: 400,
     status: "unpaid",

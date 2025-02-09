@@ -1,50 +1,57 @@
-# React + TypeScript + Vite
+BC Pay
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# **BC Pay - Benevolent Contribution System**
 
-Currently, two official plugins are available:
+## 📌 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**BC Pay** is a **Benevolent Contribution System** designed to manage penalty payments within an organization. Employees who break workplace rules contribute a small amount to a shared fund, encouraging responsibility and accountability.
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- 🔐 **User Authentication** – Secure access to the system.
+- 📊 **Penalty Management** – Assign penalties based on predefined company rules.
+- 🏢 **Role-Based Access** – HR, Team Leads, and CEO have different levels of control.
+- 💰 **Payment Tracking** – Monitor paid & unpaid penalties.
+- 📱 **Responsive Design** – Optimized for mobile devices.
+- 📅 **Due Date Management** – Keep track of pending contributions.
 
-- Configure the top-level `parserOptions` property like this:
+## 🛠️ Tech Stack
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Frontend:** React.js, TypeScript, TailwindCSS
+- **State Management:** React Context API
+
+## 🚀 Getting Started
+
+### 1️⃣ Clone the Repository
+
+```sh
+git clone https://github.com/ranaakash0003/bc-pay.git
+cd bc-pay
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 2️⃣ Install Dependencies
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```sh
+npm install
 ```
+
+### 3️⃣ Start the Development Server
+
+```sh
+npm run dev
+```
+
+The app will be available at `http://localhost:5173`
+
+## 🌐 Live Demo
+
+🔗 [BC Pay - Live App](https://bc-pay-xi.vercel.app/)
+
+## 👥 Contributors
+
+- **Your Name** – [@yourgithub](https://github.com/yourgithub)
+- Feel free to contribute! PRs are welcome.
+
+## ⭐ Show Some Love
+
+If you like this project, give it a ⭐ on GitHub!

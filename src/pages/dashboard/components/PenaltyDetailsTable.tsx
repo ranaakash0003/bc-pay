@@ -69,6 +69,7 @@ const PenaltyDetailsTable = ({
                 <th className="border p-3 text-sm">Rule</th>
                 <th className="border p-3 text-sm">Amount</th>
                 <th className="border p-3 text-sm">Date</th>
+                <th className="border p-3 text-sm">Due Date</th>
                 <th className="border p-3 text-sm">Status</th>
                 <th className="border p-3 text-sm">Action</th>
               </tr>
@@ -79,6 +80,7 @@ const PenaltyDetailsTable = ({
                   <td className="border-b p-3 text-sm">{penalty.rule}</td>
                   <td className="border-b p-3 text-sm">{penalty.amount}</td>
                   <td className="border-b p-3 text-sm">{penalty.date}</td>
+                  <td className="border-b p-3 text-sm">{penalty.due}</td>
                   <td className={"border-b font-normal text-sm"}>
                     <span
                       className={`px-3 py-1 capitalize border rounded-full ${
@@ -108,7 +110,7 @@ const PenaltyDetailsTable = ({
             {filteredPenalties.map((penalty) => (
               <div className="bg-white border border-gray-300 rounded-lg shadow-md p-4 mb-4">
                 <p className="text-gray-600 pb-3 text-sm">
-                  Rule: <span className="font-medium">{penalty.rule}</span>
+                  Rule: <span className="font-semibold">{penalty.rule}</span>
                 </p>
                 <p className="text-gray-600 pb-3 text-sm">
                   Amount:{" "}
@@ -116,6 +118,9 @@ const PenaltyDetailsTable = ({
                 </p>
                 <p className="text-gray-600 pb-3 text-sm">
                   Date: <span className="font-medium">{penalty.date}</span>
+                </p>
+                <p className="text-gray-600 pb-3 text-sm">
+                  Due Date: <span className="font-medium">{penalty.due}</span>
                 </p>
                 <p className="text-gray-600 pb-3 text-sm">
                   Status:
@@ -129,7 +134,7 @@ const PenaltyDetailsTable = ({
                     {penalty.status}
                   </span>
                 </p>
-                <div className="mt-3 flex justify-end">
+                <div className="flex justify-end">
                   <Button
                     onClick={() => markAsPaid(penalty.id)}
                     disabled={penalty.status === PAYMENT_STATUS.paid}
